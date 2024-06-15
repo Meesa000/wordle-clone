@@ -1,3 +1,41 @@
+
+*{
+    font-family: "Roboto", sans-serif;
+    
+}
 .guess-tiles {
     width: 200px;
 }
+
+.nav-bar {
+    width: 100%;
+    display:flex;
+    align-items: center;
+    padding-bottom: 5em;
+    
+}
+.nav-bar-left{
+    display: flex;
+    flex: 1;
+    align-items: center;
+    justify-content: center;
+}
+.nav-bar-left h1{
+    justify-content: center;
+    font-size: 40px;
+    font-weight: 400;
+}
+
+.nav-bar-right {
+    
+    display: flex;
+    justify-content: flex-end;
+   
+}
+
+.nav-bar-right button {
+    margin-right: 3em;
+    border-radius: 5px;
+    border: 2px solid black;
+}
+
