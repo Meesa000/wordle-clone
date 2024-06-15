@@ -1,7 +1,7 @@
 
 // number of guesses - determines how many rows of boxes
 let numberOfGuesses = 1;
-let word = 'as';
+let word = ['l','o','l'];
 let lengthOfWord = word.length;
 
 // container for the letter tiles
@@ -11,11 +11,8 @@ guessTiles.style.gap = '10px';
 guessTiles.style.justifyContent = 'center';
 guessTiles.style.alignItems = 'center';
 
-function changeTextToUpper(){
-    console.log('upper')
-    
-}
-// creates column of 5 - this represents number of guesses
+
+// creates column of word length - this represents number of guesses
 let inputElements = [];
 for (i=0;i<lengthOfWord;i++){
     
@@ -29,6 +26,7 @@ for (i=0;i<lengthOfWord;i++){
      guessBoxes.style.borderRadius = '4px';
      guessBoxes.style.flex.gap = '0px 1em'
      guessBoxes.setAttribute('type','text');
+     guessBoxes.style.textTransform = 'capitalize';
      guessTiles.appendChild(guessBoxes);  
      inputElements.push(guessBoxes); 
 }
@@ -44,15 +42,27 @@ guessTiles.appendChild(guessBtn);
 
 
 function onGuessBtnClick(){
-    let guessedWord = '';
+    let userWord = '';
     // Collect the values from each input element
+    // have to get the index number of th correct element.value, and then only make that index of inputelements green
     inputElements.forEach(element => {
-        guessedWord += element.value;
+        userWord += element.value;
+
+        let correctWord = [];
         for (i=0;i<inputElements.length;i++){
-            if (guessedWord == word){
-                inputElements[i].style.backgroundColor = '#a2c11c';   
+            console.log(element.value);
+            
+            if (word.includes(element.value)){
+                element.style.backgroundColor = '#a2c11c'; 
+                correctWord.push(inputElements[i]);
+
+                // if word includes any element value it will put all elements into the correct word array even if wrong since the one of them is correct
                       
             }
+            else {
+                inputElements[i].style.backgroundColor = 'red'
+            }
+            console.log(correctWord);
         }      
     });    
 }
