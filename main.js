@@ -1,8 +1,9 @@
 
 // number of guesses - determines how many rows of boxes
-let numberOfGuesses = 1;
 let word = ['l','o','l','l','l'];
 let lengthOfWord = word.length;
+let numberOfGuesses = document.querySelector('.num-of-guesses-field');
+let numberOfGuessesBtn = document.querySelector('.num-of-guesses-btn');
 
 // container for the letter tiles
 let guessBoxContainer = document.getElementById('guess-tiles');
@@ -11,8 +12,6 @@ guessBoxContainer.style.flexDirection = 'column';
 guessBoxContainer.style.gap = '10px';
 guessBoxContainer.style.justifyContent = 'center';
 guessBoxContainer.style.alignItems = 'center';
-
-
 
 // creates column of word length - this represents number of guesses
 let inputElements = [];
@@ -27,10 +26,8 @@ for (j=0; j<5; j++){
     guessTilesElements.push(rowContainer);
     guessBoxContainer.appendChild(rowContainer);  // append each row to the main container
     console.log(guessTilesElements);
-// pushed each guesstiles div to an array, each will indicate 
 
     for (i=0;i<lengthOfWord;i++){
-    
         let guessBoxes = document.createElement('input');
         guessBoxes.style.fontSize = '40px';
         guessBoxes.style.textAlign = 'center';
@@ -44,11 +41,8 @@ for (j=0; j<5; j++){
         guessBoxes.style.textTransform = 'capitalize';
         rowContainer.appendChild(guessBoxes);  
         inputElements.push(guessBoxes); 
-   }
-
+    }
 }
-
-
 
 // guess button, when clicked it console logs the words in each letter tile
 let guessBtn = document.createElement('button');
@@ -58,7 +52,6 @@ guessBtn.style.border = '2px solid black';
 guessBtn.style.borderRadius = '5px';
 guessBtn.onclick = function() {onGuessBtnClick()};
 guessBoxContainer.appendChild(guessBtn);
-
 
 function onGuessBtnClick(){
     let userWord = '';
